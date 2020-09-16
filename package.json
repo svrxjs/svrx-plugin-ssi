@@ -1,0 +1,43 @@
+{
+  "name": "svrx-plugin-ssi",
+  "version": "0.1.0",
+  "description": "support ssi(Server Side Include) like Nginx",
+  "main": "index.js",
+  "keywords": [
+    "svrx",
+    "svrx-plugin",
+    "ssi"
+  ],
+  "engines": {
+    "svrx": "^1.0.0"
+  },
+  "author": "leeluolee <87399126@163.com>",
+  "scripts": {
+    "start": "node ./example/start.js",
+    "test": "nyc --reporter=html --reporter=text mocha --recursive __tests__ --exit",
+    "lint": "eslint \"**/*.js\"",
+    "lint:fix": "eslint \"**/*.js\" --fix",
+    "prepublishOnly": "npm run lint && npm run test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@svrx/eslint-config": "^1.0.0",
+    "@svrx/svrx": "^1.1.4",
+    "eslint": "^6.2.0",
+    "husky": "^3.0.4",
+    "lint-staged": "^9.2.3",
+    "mocha": "^6.2.0",
+    "nyc": "^15.1.0",
+    "requireg": "^0.2.2",
+    "supertest": "^4.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint --fix"
+  },
+  "license": "MIT"
+}
